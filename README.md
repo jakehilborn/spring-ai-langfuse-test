@@ -28,3 +28,12 @@ The docker-compose file in this repo is from https://github.com/langfuse/langfus
 4. Note how the LangFuse web UI includes traces with the LLM attributes, and that they are also recorded under the Observations tab.
 
 ![python-demo](screenshots/python-demo.png)
+
+### Debugging Spring AI OTel payloads
+
+1. Start the open telemetry collector debug exporter with `docker compose -f debug-collector/docker-compose.yml up`
+2. In another tab, it's assumed you've already exported the SPRING_AI_OPENAI_APIKEY env var in this terminal tab.
+3. Point to this collector with `export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"`
+4. Run the Java app with `./mvnw clean install spring-boot:run`
+5. Each time you execute `curl localhost:8080/v1/chat` a new trace is displayed in the open telemetry collector console output.
+6. You can also run `./traceloop_test.py` to view the Python Traceloop payloads.
