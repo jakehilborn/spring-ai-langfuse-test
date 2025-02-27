@@ -13,3 +13,8 @@ management:
   observations:
     annotations:
       enabled: true       # Enable @Observed (if you use observation annotations in code)
+otel:
+  exporter:
+    otlp:
+      endpoint: http://localhost:3000/api/public/otel
+      headers: "Authorization=Basic yourBase64KeyHere"
