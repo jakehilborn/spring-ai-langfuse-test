@@ -18,7 +18,7 @@ response = openai.chat.completions.create(
     max_tokens=5,
     model="gpt-3.5-turbo", # Or any other model you prefer
     messages=[
-        {"role": "user", "content": "Reply with the word 'true'"}
+        {"role": "user", "content": "Reply with the word 'python'"}
     ]
 )
 

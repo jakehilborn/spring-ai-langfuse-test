@@ -21,7 +21,7 @@ public class ChatService {
     @EventListener(ApplicationReadyEvent.class)
     public String testAiCall() {
         LOGGER.info("Invoking LLM");
-        String answer = chatClient.prompt("Reply with the word 'true'").call().content();
+        String answer = chatClient.prompt("Reply with the word 'java'").call().content();
         LOGGER.info("AI answered: {}", answer);
         return answer;
     }
